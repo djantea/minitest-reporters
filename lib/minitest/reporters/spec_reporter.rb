@@ -81,7 +81,7 @@ module MiniTest
 
       def print_time(test)
         total_time = Time.now - runner.test_start_time
-        print(" (%.2fs)" % [total_time])
+        print(" (%5.2fs)" % [total_time])
       end
 
       def print_info(e)
