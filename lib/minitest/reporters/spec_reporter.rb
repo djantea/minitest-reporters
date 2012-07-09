@@ -46,7 +46,7 @@ module MiniTest
       end
 
       def before_test(suite, test)
-        pad_test(test)
+        print pad_test(test)
       end
 
       def pass(suite, test, test_runner)
