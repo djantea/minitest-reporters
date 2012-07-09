@@ -12,9 +12,11 @@ module MiniTest
       include Reporter
       include ANSI::Code
 
-      TEST_PADDING = 2
-      INFO_PADDING = 8
-      MARK_SIZE    = 5
+      TEST_SIZE    = 70
+      TEST_PADDING =  2
+      MARK_SIZE    =  5
+      MARK_PADDING =  1
+      INFO_PADDING =  8
 
       def initialize(backtrace_filter = BacktraceFilter.default_filter)
         @backtrace_filter = backtrace_filter
@@ -44,7 +46,7 @@ module MiniTest
       end
 
       def before_test(suite, test)
-        print ('  %-70s' % [test])
+        pad_test(test)
       end
 
       def pass(suite, test, test_runner)
@@ -94,7 +96,11 @@ module MiniTest
       end
 
       def pad_mark(str)
-        pad("%#{MARK_SIZE}s" % str, TEST_PADDING)
+        pad("%#{MARK_SIZE}s" % str, MARK_PADDING)
+      end
+
+      def pad_test(str)
+        pad("%-#{TEST_SIZE}s" % str, TEST_PADDING)
       end
     end
   end
