@@ -44,7 +44,7 @@ module MiniTest
       end
 
       def before_test(suite, test)
-        print ('%-50s' % [test])
+        print ('  %-70s' % [test])
       end
 
       def pass(suite, test, test_runner)
